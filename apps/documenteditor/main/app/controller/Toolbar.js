@@ -813,8 +813,10 @@ define([
             if (!(paragraph_locked || header_locked)) {
                 var control_disable = control_plain || content_locked,
                     if_form = control_props && control_props.get_FormPr();
-                for (var i=0; i<7; i++)
+                for (var i=0; i<2; i++)
                     toolbar.btnContentControls.menu.items[i].setDisabled(control_disable);
+                for (var i=2; i<7; i++)
+                    toolbar.btnContentControls.menu.items[i].setDisabled(true);
                 toolbar.btnContentControls.menu.items[8].setDisabled(!in_control || lock_type==Asc.c_oAscSdtLockType.SdtContentLocked || lock_type==Asc.c_oAscSdtLockType.SdtLocked || if_form);
                 toolbar.btnContentControls.menu.items[10].setDisabled(!in_control || if_form);
             }

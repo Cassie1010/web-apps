@@ -630,7 +630,7 @@ define([
                                     iconCls: 'menu__icon cc-richtext',
                                     value: 'rich'
                                 },
-                                /*{
+                                {
                                     caption: this.textPictureControl,
                                     iconCls: 'menu__icon btn-menu-image',
                                     value: 'picture'
@@ -654,7 +654,7 @@ define([
                                     caption: this.textCheckboxControl,
                                     // iconCls: 'mnu-control-rich',
                                     value: 'checkbox'
-                                },*/
+                                },
                                 {caption: '--'},
                                 {
                                     caption: this.textRemoveControl,
