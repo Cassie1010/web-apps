@@ -815,10 +815,10 @@ define([
                     if_form = control_props && control_props.get_FormPr();
                 for (var i=0; i<2; i++)
                     toolbar.btnContentControls.menu.items[i].setDisabled(control_disable);
-                for (var i=2; i<7; i++)
-                    toolbar.btnContentControls.menu.items[i].setDisabled(true);
-                toolbar.btnContentControls.menu.items[8].setDisabled(!in_control || lock_type==Asc.c_oAscSdtLockType.SdtContentLocked || lock_type==Asc.c_oAscSdtLockType.SdtLocked || if_form);
-                toolbar.btnContentControls.menu.items[10].setDisabled(!in_control || if_form);
+                /*for (var i=2; i<7; i++)
+                    toolbar.btnContentControls.menu.items[i].setDisabled(true);*/
+                toolbar.btnContentControls.menu.items[8 - 5].setDisabled(!in_control || lock_type==Asc.c_oAscSdtLockType.SdtContentLocked || lock_type==Asc.c_oAscSdtLockType.SdtLocked || if_form);
+                toolbar.btnContentControls.menu.items[10 - 5].setDisabled(!in_control || if_form);
             }
 
             var need_text_disable = paragraph_locked || header_locked || in_chart || rich_edit_lock || plain_edit_lock;

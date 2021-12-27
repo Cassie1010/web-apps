@@ -630,7 +630,7 @@ define([
                                     iconCls: 'menu__icon cc-richtext',
                                     value: 'rich'
                                 },
-                                {
+                                /*{
                                     caption: this.textPictureControl,
                                     iconCls: 'menu__icon btn-menu-image',
                                     value: 'picture'
@@ -654,7 +654,7 @@ define([
                                     caption: this.textCheckboxControl,
                                     // iconCls: 'mnu-control-rich',
                                     value: 'checkbox'
-                                },
+                                },*/
                                 {caption: '--'},
                                 {
                                     caption: this.textRemoveControl,
@@ -2085,7 +2085,7 @@ define([
 
                 this.btnMailRecepients.setVisible(mode.canCoAuthoring == true && mode.canUseMailMerge);
                 this.listStylesAdditionalMenuItem.setVisible(mode.canEditStyles);
-                this.btnContentControls.menu.items[10].setVisible(mode.canEditContentControl);
+                this.btnContentControls.menu.items[10 - 5].setVisible(mode.canEditContentControl);
                 this.mnuInsertImage.items[2].setVisible(this.mode.canRequestInsertImage || this.mode.fileChoiceUrl && this.mode.fileChoiceUrl.indexOf("{documentType}")>-1);
             },
 
