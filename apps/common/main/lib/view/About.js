@@ -67,7 +67,7 @@ define([
                         '<td align="center"><label class="asc-about-version" id="id-about-licensor-version-name">' + this.txtVersion + this.txtVersionNum + '</label></td>',
                     '</tr>',
                 '</table>',
-                '<table id="id-about-licensor-info" cols="3" style="width: 100%;" class="margin-bottom">',
+                '<table id="id-about-licensor-info" cols="3" style="width: 100%;" class="hidden margin-bottom">',
                     '<tr>',
                         '<td colspan="3" align="center" style="padding: 20px 0 10px 0;"><label class="asc-about-companyname"><%= publishername %></label></td>',
                     '</tr>',
