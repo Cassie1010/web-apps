@@ -250,7 +250,7 @@ define([
                 Common.NotificationCenter.trigger('markfavorite', !me.options.favorite);
             });
 
-            if ( me.logo )
+            /*if ( me.logo )
                 me.logo.children(0).on('click', function (e) {
                     var _url = !!me.branding && !!me.branding.logo && (me.branding.logo.url!==undefined) ?
                         me.branding.logo.url : '{{PUBLISHER_URL}}';
@@ -258,7 +258,7 @@ define([
                         var newDocumentPage = window.open(_url);
                         newDocumentPage && newDocumentPage.focus();
                     }
-                });
+                });*/
 
             if ( $panelUsers ) {
                 onResetUsers(storeUsers);
