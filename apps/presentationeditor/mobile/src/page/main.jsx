@@ -105,7 +105,7 @@ class MainPage extends Component {
                 <Page name="home" className={`editor${ showLogo ? ' page-with-logo' : ''}`}>
                     {/* Top Navbar */}
                     <Navbar id='editor-navbar' className={`main-navbar${showLogo ? ' navbar-with-logo' : ''}`}>
-                        {showLogo && <div className="main-logo"><Icon icon="icon-logo"></Icon></div>}
+                        {showLogo && appOptions.canBranding && <div className="main-logo"><Icon icon="icon-logo"></Icon></div>}
                         <Subnavbar>
                             <Toolbar openOptions={this.handleClickToOpenOptions} closeOptions={this.handleOptionsViewClosed}/>
                             <Search useSuspense={false}/>
@@ -147,7 +147,8 @@ class MainPage extends Component {
                         !this.state.collaborationVisible ? null :
                             <CollaborationView onclosed={this.handleOptionsViewClosed.bind(this, 'coauth')} />
                     }
-                    <ContextMenu openOptions={this.handleClickToOpenOptions.bind(this)} />
+                    {appOptions.isDocReady && <ContextMenu openOptions={this.handleClickToOpenOptions.bind(this)} />}   
+                    
                 </Page>
             </Fragment>
         )

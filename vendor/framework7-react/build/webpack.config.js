@@ -133,6 +133,7 @@ module.exports = {
                   globalVars: {
                       "common-image-header-path": env === 'production' ? `../../../${editor}/mobile/resources/img/header` : '../../common/mobile/resources/img/header',
                       "common-image-about-path": env === 'production' ? `../../../${editor}/mobile/resources/img/about` : '../../common/main/resources/img/about',
+                      "app-image-path": env === 'production' ? '../resources/img' : './resources/img',
                   }
                 }
               }
@@ -172,7 +173,8 @@ module.exports = {
       __PUBLISHER_NAME__: JSON.stringify(process.env.PUBLISHER_NAME || 'Ascensio System SIA'),
       __APP_TITLE_TEXT__: JSON.stringify(process.env.APP_TITLE_TEXT ? process.env.APP_TITLE_TEXT : 'ONLYOFFICE'),
       __COMPANY_NAME__: JSON.stringify(process.env.COMPANY_NAME ? process.env.COMPANY_NAME : 'ONLYOFFICE'),
-      __HELP_URL__: JSON.stringify(process.env.HELP_URL || 'https://helpcenter.onlyoffice.com')
+      __HELP_URL__: JSON.stringify(process.env.HELP_URL || 'https://helpcenter.onlyoffice.com'),
+      __SALES_EMAIL__: JSON.stringify(process.env.__SALES_EMAIL__ || 'sales@onlyoffice.com'),
     }),
     new webpack.BannerPlugin(`\n* Version: ${process.env.PRODUCT_VERSION} (build: ${process.env.BUILD_NUMBER})\n`),
 
@@ -229,8 +231,9 @@ module.exports = {
     }),
     new webpack.NormalModuleReplacementPlugin(
         /\.{2}\/lib\/patch/,
-        resource => fs.existsSync(`../../../web-apps-mobile/${targetPatch}/patch.jsx`) ?
-                        resource.request = `../../../../../../web-apps-mobile/${targetPatch}/patch.jsx` : resource
+        resource => (env == 'development' || /web-apps-mobile/.test(process.env.addon)) &&
+                        fs.existsSync(`../../../web-apps-mobile/${targetPatch}/patch.jsx`) ?
+                            resource.request = `../../../../../../web-apps-mobile/${targetPatch}/patch.jsx` : resource
         //resource => fs.existsSync(`${addonPath}/patch.jsx`) ?
                         //resource.request = `../../../${addonPath}/patch.jsx` : resource
     ),
